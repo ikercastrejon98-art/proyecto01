@@ -1,0 +1,73 @@
+Welcome to freeCodeCamp
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Proyecto 01</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0b0b0b;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+      background: black;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      letter-spacing: 2px;
+      border-bottom: 2px solid #222;
+    }
+
+    section {
+      padding: 40px;
+      text-align: center;
+    }
+
+    .box {
+      background: #111;
+      padding: 30px;
+      margin: 20px auto;
+      max-width: 400px;
+      border: 1px solid #333;
+    }
+
+    button {
+      padding: 15px 30px;
+      background: black;
+      color: white;
+      border: 2px solid white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: white;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Welcome to freeCodeCamp</h1>
+
+
+
+  <section>
+    <div class="box">
+      <h2>Mi meta</h2>
+      <p id="texto">A los 16 quiero ser fuerte y disciplinado.</p>
+      <button onclick="cambiar()">Recordar</button>
+    </div>
+  </section>
+
+  <script>
+    function cambiar() {
+      document.getElementById("texto").innerHTML = "Estoy trabajando hoy para no arrepentirme mañana.";
+    }
+  </script>
+
+</body>
+</html>
