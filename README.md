@@ -2,138 +2,112 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Proyecto 01</title>
-
+<title>TEPIC MX</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #050505;
-  color: white;
-  overflow-x: hidden;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Montserrat',sans-serif;
 }
-
-/* Fondo animado */
-.fondo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 20% 20%, #1a1a1a, #000);
-  animation: mover 10s infinite alternate;
-  z-index: -1;
+body{
+  background:#0b0b0b;
+  color:white;
+  overflow-x:hidden;
 }
-
-@keyframes mover {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 100% 100%; }
+header{
+  height:100vh;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.6), #0b0b0b),
+    url("https://images.unsplash.com/photo-1526401485004-2fda9f6a55d3?auto=format&fit=crop&w=1600&q=80");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
-
-header {
-  text-align: center;
-  padding: 40px;
-  font-size: 40px;
-  letter-spacing: 3px;
+header h1{
+  font-size:4rem;
+  letter-spacing:10px;
 }
-
-section {
-  max-width: 700px;
-  margin: auto;
-  padding: 30px;
+header p{
+  margin-top:15px;
+  opacity:.7;
 }
-
-.card {
-  background: rgba(0,0,0,0.7);
-  border: 1px solid #222;
-  padding: 25px;
-  margin: 20px 0;
-  border-radius: 10px;
-  animation: aparecer 2s ease;
+section{
+  padding:100px 10%;
 }
-
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+#about{
+  max-width:800px;
+  margin:auto;
+  text-align:center;
 }
-
-button {
-  padding: 15px 30px;
-  background: black;
-  color: white;
-  border: 2px solid white;
-  cursor: pointer;
-  margin-top: 15px;
+#about h2{
+  margin-bottom:30px;
+  letter-spacing:5px;
 }
-
-button:hover {
-  background: white;
-  color: black;
+#about p{
+  line-height:1.8;
+  opacity:.8;
+}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+.gallery img{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+  filter:grayscale(20%);
+  transition:.5s;
+}
+.gallery img:hover{
+  filter:grayscale(0%);
+  transform:scale(1.03);
+}
+footer{
+  text-align:center;
+  padding:40px;
+  background:#000;
+  font-size:.9rem;
+  opacity:.6;
 }
 </style>
 </head>
-
 <body>
 
-<div class="fondo"></div>
+<header>
+  <div>
+    <h1>TEPIC MX</h1>
+    <p>Nayarit, México</p>
+  </div>
+</header>
 
-<header>PROYECTO 01</header>
-
-<section>
-
-<div class="card">
-<h2>Sobre mí</h2>
-<p>Soy Iker. Estoy construyendo mi mejor versión en silencio.</p>
-</div>
-
-<div class="card">
-<h2>Mi misión</h2>
-<p>A los 16 quiero ser fuerte, disciplinado y respetado.</p>
-</div>
-
-<div class="card">
-<h2>Días desde que empecé</h2>
-<p id="contador"></p>
-</div>
-
-<div class="card">
-<h2>Recordatorio</h2>
-<p id="frase">Presiona para recordar quién quieres ser.</p>
-<button onclick="cambiar()">Recordar</button>
-</div>
-
-<div class="card">
-<h2>Música</h2>
-<button onclick="musica()">Encender / Apagar</button>
-</div>
-
+<section id="about">
+  <h2>TEPIC</h2>
+  <p>
+    Tepic no es una ciudad que grite, es una ciudad que respira lento.  
+    Entre montañas, calles tranquilas y cielos que se apagan en tonos naranjas,  
+    aquí el tiempo parece detenerse.  
+    Este proyecto es una mirada a su belleza silenciosa.
+  </p>
 </section>
 
-<audio id="song" loop>
-<source src="https://cdn.pixabay.com/download/audio/2022/10/03/audio_41c6e8b0c5.mp3" type="audio/mpeg">
-</audio>
+<section>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1610360944932-9df0b9e4f8b7?auto=format&fit=crop&w=800&q=80">
+    <img src="https://images.unsplash.com/photo-1622632849984-70cf36c6b2b7?auto=format&fit=crop&w=800&q=80">
+    <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=800&q=80">
+    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80">
+  </div>
+</section>
 
-<script>
-function cambiar(){
-  document.getElementById("frase").innerHTML = "No vine a ser promedio. Vine a ser fuerte.";
-}
-
-const inicio = new Date("2026-01-01");
-setInterval(() => {
-  const hoy = new Date();
-  const dias = Math.floor((hoy - inicio) / (1000 * 60 * 60 * 24));
-  document.getElementById("contador").innerHTML = dias + " días";
-}, 1000);
-
-function musica(){
-  const song = document.getElementById("song");
-  if(song.paused){
-    song.play();
-  } else {
-    song.pause();
-  }
-}
-</script>
+<footer>
+  Creado por Iker Castrejón — Tepic, Nayarit, México
+</footer>
 
 </body>
 </html>
